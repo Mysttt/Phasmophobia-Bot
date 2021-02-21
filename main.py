@@ -1,4 +1,4 @@
-# VERSION 1.0 / REQUIRES CONFIG 1.0
+# VERSION 1.1 / REQUIRES CONFIG 1.0
 
 import discord
 from discord.ext import commands
@@ -28,6 +28,8 @@ async def on_ready():
     print(f"Bot Username: {client.user.name}")
     print(f"BotID: {client.user.id}")
     print('------')
+    for command in client.commands:
+        print(f"Loaded: {command}")
     configactivity = config['bot_activity']
     activity = discord.Game(name=config['bot_status_text'])
     await client.change_presence(status=configactivity, activity=activity)
@@ -290,10 +292,237 @@ async def prison(ctx):
 @client.command()
 async def journal(ctx):
     if config['help_command'] == True:
-        embed = discord.Embed(title="**JOURNAL | PAGE 1:book:**")
-        embed.set_image(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        embed = discord.Embed(title="**JOURNAL | :book:**", description="The Journal holds several important bits of information on Phasmophobia and its ghosts. It has a section explaining some of the equipment and evidence, as well as information about the different sort of ghosts you may encounter. You can also see any photos you may have taken, with a brief description if applicable. The final page can be used to select what evidence you've found, and what type of ghost you think you're dealing with.")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
         await ctx.send(embed=embed)
-        
 
 
+@client.command()
+async def emf(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**EMF | :movie_camera:**", description="An Electro-Magnetic Field (short: EMF) is emitted whenever the Ghost interacts with its environment. EMF can be read by the EMF Reader, allowing players to deduce the Ghost's activities from the EMF Level")
+        embed.add_field(name="Price:", value="$45")
+        embed.add_field(name="Max Amount:", value="2")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["writing", "gw"])
+async def ghostwriting(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**GHOST WRITING BOOK | :movie_camera:**", description="Ghost Writing Book, also known as automatic writing, is Equipment used to obtain Ghost Writing by placing it near a Ghost. There is no way to forcefully trigger the book to be written in legitimately.")
+        embed.add_field(name="Price:", value="$40")
+        embed.add_field(name="Max Amount:", value="2")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command()
+async def spiritbox(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**SPIRIT BOX | :movie_camera:**", description="The Spirit Box is a piece of Equipment, as well as a type of Evidence, that can be used to ask the Ghost questions to get more information. Only certain Ghosts will respond via the Spirit Box, which can be used as Evidence when identifying the Ghost.")
+        embed.add_field(name="Price:", value="$50")
+        embed.add_field(name="Max Amount:", value="2")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command()
+async def thermometer(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**THERMOMETER | :movie_camera:**", description="The Thermometer is a purchasable piece of Equipment used to read the temperatures in the nearby environment. The Thermometer can be used to detect Evidence of Freezing Temperatures and is a reliable tool to locate the Ghost Room.")
+        embed.add_field(name="Price:", value="$30")
+        embed.add_field(name="Max Amount:", value="3")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["videocamera"])
+async def video(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**VIDEO CAMERA | :movie_camera:**", description="The Video Camera (also known as DSLR) is used to create a Video Feed which can be seen in the Van.")
+        embed.add_field(name="Price:", value="$50")
+        embed.add_field(name="Max Amount:", value="6")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["uvlight"])
+async def uv(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**UV FLASHLIGHT | :movie_camera:**", description="The UV Flashlight is a purchasable starter item used to detect Fingerprints and Footprints. It can be carried and activated at the same time as a standard Flashlight or Strong Flashlight, but the faint fingerprints might not be visible under their light.")
+        embed.add_field(name="Price:", value="$35")
+        embed.add_field(name="Max Amount:", value="2")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["photocamera"])
+async def photo(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**PHOTO CAMERA | :movie_camera:**", description="The Photo Camera is a photographic camera that can take pictures of objects in-game. This equipment cannot be used for gathering evidence, but it may be required to complete additional objectives, daily challenges, or to acquire money from photo rewards upon finishing the investigation.")
+        embed.add_field(name="Price:", value="$40")
+        embed.add_field(name="Max Amount:", value="3")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command()
+async def flashlight(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**FLASHLIGHT | :movie_camera:**", description="Flashlights are the primary source of illuminating dark and/or poorly-lit areas, or otherwise one would have to roam in pitch-black darkness and lose their sanity.")
+        embed.add_field(name="Price:", value="$30")
+        embed.add_field(name="Max Amount:", value="4")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command()
+async def strongflashlight(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**STRONG FLASHLIGHT | :movie_camera:**", description="An upgraded version of the flashlight. It is quite self-descriptive: it creates a much brighter light than the flashlight, making navigation in the dark that much easier.")
+        embed.add_field(name="Price:", value="$50")
+        embed.add_field(name="Max Amount:", value="4")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command()
+async def candle(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**CANDLE | :movie_camera:**", description="Candles are deployable light sources that can be lit using a source of fire such as the lighter, which can be used to light up a room and prevent the player's sanity from dropping.")
+        embed.add_field(name="Price:", value="$15")
+        embed.add_field(name="Max Amount:", value="4")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command()
+async def crucifix(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**CRUCIFIX | :movie_camera:**", description="The Crucifix is a purchasable item that is used to prevent the Ghost from entering into a Hunt.")
+        embed.add_field(name="Price:", value="$30")
+        embed.add_field(name="Max Amount:", value="2")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["glowstick"])
+async def glow(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**GLOWSTICK | :movie_camera:**", description="The Glowstick is a handheld item that emits a UV light when used. It can be thrown onto the floor to light up Footprints or Fingerprints. ")
+        embed.add_field(name="Price:", value="$20")
+        embed.add_field(name="Max Amount:", value="2")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["hmcamera"])
+async def headmountedcamera(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**HEAD MOUNTED CAMERA | :movie_camera:**", description="The Head Mounted Camera can be used to help teams track each other and to see Ghost Orbs.")
+        embed.add_field(name="Price:", value="$60")
+        embed.add_field(name="Max Amount:", value="4")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["lightsensor", "infraredlightsensor"])
+async def infrared(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**INFRARED LIGHT SENSOR | :movie_camera:**", description="An Infrared Light Sensor that detects both human and paranormal movement. When set off, it will illuminate the surrounding area with a bright light.")
+        embed.add_field(name="Price:", value="$65")
+        embed.add_field(name="Max Amount:", value="4")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command()
+async def lighter(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**LIGHTER | :movie_camera:**", description="The Lighter is an item used to light Smudge Sticks and Candles. It emits a small amount of light when activated and held by the player.")
+        embed.add_field(name="Price:", value="$10")
+        embed.add_field(name="Max Amount:", value="2")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["motionsensor"])
+async def motion(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**MOTION SENSOR | :movie_camera:**", description="The Motion Sensor is a purchasable support item. It is the most expensive piece of equipment in the game, costing $100, but it can be very handy when tracking the movement of the Ghost, providing a visual and audio cue when the ghost moves through it. The Motion Sensor also displays on the Site Map, allowing for the Ghost's movement to be detected from the safety of the Van")
+        embed.add_field(name="Price:", value="$100")
+        embed.add_field(name="Max Amount:", value="4")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command()
+async def parabolic(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**PARABOLIC MICROPHONE | :movie_camera:**", description="A Parabolic Microphone can detect sound through walls and at a great distance. It serves as a portable version of the sound sensor. Although infamously finicky, it is very handy to have around in the larger locations such as the High School and Asylum, although largely useless in smaller ones.")
+        embed.add_field(name="Price:", value="$50")
+        embed.add_field(name="Max Amount:", value="2")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command()
+async def salt(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**SALT | :movie_camera:**", description="Salt is a purchasable item used to detect the Ghost's footprints. It is used to place salt piles on the floor which the ghost can walk in, disturbing it and creating footprints that can be seen with the UV Flashlight, which can then be photographed with a Photo Camera for extra money.")
+        embed.add_field(name="Price:", value="$15")
+        embed.add_field(name="Max Amount:", value="2")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["sanitypills"])
+async def sanity(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**SANITY PILLS | :movie_camera:**", description="Sanity Pills replenish your Sanity level. Each bottle replenishes 40% Sanity, up to the maximum of 100%.")
+        embed.add_field(name="Price:", value="$45")
+        embed.add_field(name="Max Amount:", value="4")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["smudgesticks"])
+async def smudge(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**SMUDGE STICKS | :movie_camera:**", description="Smudge Sticks, also known as sage sticks, are a purchasable item that will deter the Ghost from hunting or attacking for a period of time when burned")
+        embed.add_field(name="Price:", value="$15")
+        embed.add_field(name="Max Amount:", value="4")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["sounds"])
+async def soundsensor(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**SOUND SENSOR | :movie_camera:**", description="The Sound Sensor is a sensor that can listen to the most quiet sounds and vibrations in the air. This is displayed as data at the van.")
+        embed.add_field(name="Price:", value="$80")
+        embed.add_field(name="Max Amount:", value="4")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command()
+async def tripod(ctx):
+    if config['help_command'] == True:
+        embed = discord.Embed(title="**TRIPOD | :movie_camera:**", description="The Tripod can be used to mount Video Cameras on. Tripods will be deployed facing the same direction as the player deploying them.")
+        embed.add_field(name="Price:", value="$25")
+        embed.add_field(name="Max Amount:", value="5")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.send(embed=embed)
+
+
+@client.command(aliases=["items"])
+async def equipment(ctx):
+    if config['help_command'] == True:
+        prefix = config['prefix']
+        embed = discord.Embed(title="**EQUIPMENT ITEMS | :ghost:**", description=f"There are a total of 21 different pieces of equipment in Phasmophobia. Each item has their own command (eg. {prefix}emf).")
+        embed.add_field(name="Equipment List:", value="EMF, GhostWriting, SpiritBox, Thermometer, VideoCamera, UV, PhotoCamera, Flashlight, StrongFlashlight, Candle, Crucifix, GlowSticks, HeadMountedCamera, InfraredLightSensor, Lighter, MotionSensor, Parabolic, Salt, SanityPills, SmudgeSticks, SoundSensor, Tripod")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+        await ctx.channel.send(embed=embed)
 client.run(config['token'])
