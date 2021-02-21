@@ -4,7 +4,7 @@
 
 <h3><b>Installation:</b></h3> 
 	 <pre><p> <i>Run 'install.bat'</i></p></pre>
-	 
+
 
 ![](https://cdn.discordapp.com/attachments/812895798496591882/812920133001150464/MOSHED-2021-2-21-5-34-15.gif)
 <p> <b>Phasmophobia Bot</b> includes a bunch of different commands which can help players learn about certain maps, items and ghosts.
@@ -13,7 +13,6 @@
 <p> You can also find out specific information about a Ghost or Map. </p>
 
 <h3><b>Examples:</b></h3>
-
 <b>!sprit</b>: 
 <pre>Will show you information about how a spirit works, strenghts, weaknessses and what evidence you require.</pre>
 
