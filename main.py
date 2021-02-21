@@ -1,4 +1,4 @@
-# VERSION 1.2 / REQUIRES CONFIG 1.1
+# VERSION 1.3 / REQUIRES CONFIG 1.1
 
 import discord
 from discord.ext import commands
@@ -39,12 +39,17 @@ async def on_ready():
 async def help(ctx):
     prefix = config['prefix']
     embed = discord.Embed(title="**HELP PAGE | :book:**",
-                          description="Phasmophobia is a discord bot for the game Phasmophobia")
-    embed.add_field(name="Prefix:", value=f"``{prefix}``")
-    embed.add_field(name="unkown:", value=f"``{prefix}unkown`` *unknown*")
-    embed.add_field(name="unkown:", value=f"``{prefix}unkown`` *unkown*")
-    embed.set_thumbnail(
-        url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
+                          description=f"Phasmophobia is a Discord Bot for  Phasmophobia | Prefix: ``{prefix}``")
+    embed.add_field(name="Ghost:", value=f"``{prefix}<ghostname>`` Shows Information About That Ghost.")
+    embed.add_field(name="Ghost List:", value=f"``{prefix}ghost`` Provides a list of all Ghosts.")
+    embed.add_field(name="Map:", value=f"``{prefix}<mapname>`` Shows Information About That Map.")
+    embed.add_field(name="Map List:", value=f"``{prefix}maps`` Provides a list of all the Maps.")
+    embed.add_field(name="Equipment:", value=f"``{prefix}<itemname>`` Shows Information About That Item.")
+    embed.add_field(name="Equipment List:", value=f"``{prefix}equipment`` Provides a list of all Ghosts.")
+    embed.add_field(name="Journal:", value=f"``{prefix}journal`` Shows Information About The Journal.")
+    embed.add_field(name="Command List:", value=f"``{prefix}commands`` Shows A List Of All Available Commands.")
+    embed.add_field(name="Patches:", value=f"``{prefix}patches`` Shows The Latest Updates Patch Notes.")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
     await ctx.channel.send(embed=embed)
 
 
@@ -585,5 +590,14 @@ async def equipment(ctx):
         url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
     await ctx.channel.send(embed=embed)
 
+
+@client.command()
+async def commands(ctx):
+    prefix = config['prefix']
+    helptext = "```"
+    for command in client.commands:
+        helptext += f"{prefix}{command}\n"
+    helptext += "```"
+    await ctx.send(helptext)
 
 client.run(config['token'])
