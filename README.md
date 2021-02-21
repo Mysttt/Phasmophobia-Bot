@@ -2,6 +2,14 @@
 <p> <b>Phasmophobia Bot</b> is a Discord Bot made for the game <b>Phasmophobia</b>. *Not Official, Fan Made*</p>
 <p> Need Help? > Join the Support Server: https://discord.gg/HwJhy88aGm </p>
 
+<p align="left">
+  <a href="https://discord.gg/red">
+    <img src="https://discordapp.com/api/guilds/133049272517001216/widget.png?style=shield" alt="Discord Server">
+  <a href="https://www.python.org/downloads/">
+    <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/Red-Discordbot">
+  </a>
+</p
+	  
 <h3><b>Installation:</b></h3> 
 	 <pre><p> <i>Run 'install.bat'</i></p></pre>
 
