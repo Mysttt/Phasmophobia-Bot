@@ -292,7 +292,7 @@ async def journal(ctx):
     if config['help_command'] == True:
         embed = discord.Embed(title="**JOURNAL | PAGE 1:book:**")
         embed.set_image(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
-        ctx.send(embed=embed)
+        await ctx.send(embed=embed)
         
 
 
