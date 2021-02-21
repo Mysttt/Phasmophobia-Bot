@@ -20,7 +20,8 @@
 <p> <b>Phasmophobia Bot</b> includes a bunch of different commands which can help players learn about certain maps, items and ghosts.
 	<b>!ghost</b>: Will provide a list of all Ghosts within Phasmophobia
 	<b>!maps</b>: Will provide a list of all the Maps + Map Size within Phasmophobia
-<p> You can also find out specific information about a Ghost or Map. </p>
+	<b>!equipment</b> Will provide a list of all the Equipment Items within Phasmophobia
+<p> You can also find out specific information about a Ghostm Map or Any Equipment Item. </p>
 
 <h3><b>Examples:</b></h3>
 <b>!sprit</b>: 
@@ -32,3 +33,8 @@
 <pre>Will show you information about tanglewood, Recommend Player Amount, Size and Ouji Board Spawn Locations.</pre>
 
 ![](https://cdn.discordapp.com/attachments/812895798496591882/812921910350315551/unknown.png)
+
+<b>!spritbox</b>: 
+<pre>Will show you information about how a Spirit Box works, Price and the Max Amount you can use in-game</pre>
+
+![](https://cdn.discordapp.com/attachments/812895798496591882/813050233353273364/unknown.png)
