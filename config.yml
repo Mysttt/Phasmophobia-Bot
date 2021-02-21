@@ -1,4 +1,4 @@
-# CONFIG 1.1 / REQUIRES VERSION 1.2
+# CONFIG 1.1 / REQUIRES VERSION 1.2 - 1.3
 
 # Your discord bots token
 token: 
@@ -11,3 +11,4 @@ bot_status_text: "👻 | Hunting"
 
 # IDLE, DND, ONLINE, OFFLINE
 bot_activity: "DND"
+
