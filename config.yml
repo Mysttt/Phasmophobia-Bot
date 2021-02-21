@@ -1,0 +1,16 @@
+# CONFIG 1.0 / REQUIRES VERSION 1.0
+
+# Your discord bots token
+token: 
+
+# The discord bots command prefix (eg. !help - ! = prefix)
+prefix: "!"
+
+# Set what the bot is currently playing
+bot_status_text: "👻 | Hunting"
+
+# IDLE, DND, ONLINE, OFFLINE
+bot_activity: "DND"
+
+# True/False - <prefix>help command
+help_command: True
