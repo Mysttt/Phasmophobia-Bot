@@ -3,7 +3,7 @@
 <p> Need Help? > Join the Support Server: https://discord.gg/HwJhy88aGm </p>
 
 <p align="left">
-  <a href="https://discord.gg/red">
+  <a href="https://discord.gg/HwJhy88aGm">
     <img src="https://discordapp.com/api/guilds/809362745354354688/widget.png?style=shield" alt="Discord Server">
   <a href="https://www.python.org/downloads/">
     <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/Red-Discordbot">
