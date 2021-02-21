@@ -1,4 +1,4 @@
-# VERSION 1.3 / REQUIRES CONFIG 1.1
+# VERSION 1.2 / REQUIRES CONFIG 1.1
 
 import discord
 from discord.ext import commands
@@ -45,7 +45,7 @@ async def help(ctx):
     embed.add_field(name="Map:", value=f"``{prefix}<mapname>`` Shows Information About That Map.")
     embed.add_field(name="Map List:", value=f"``{prefix}maps`` Provides a list of all the Maps.")
     embed.add_field(name="Equipment:", value=f"``{prefix}<itemname>`` Shows Information About That Item.")
-    embed.add_field(name="Equipment List:", value=f"``{prefix}equipment`` Provides a list of all Ghosts.")
+    embed.add_field(name="Equipment List:", value=f"``{prefix}equipment`` Provides a list of all Equipment Items.")
     embed.add_field(name="Journal:", value=f"``{prefix}journal`` Shows Information About The Journal.")
     embed.add_field(name="Command List:", value=f"``{prefix}commands`` Shows A List Of All Available Commands.")
     embed.add_field(name="Patches:", value=f"``{prefix}patches`` Shows The Latest Updates Patch Notes.")
