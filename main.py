@@ -15,7 +15,7 @@ client.remove_command('help')
 
 
 @client.event
-async def on_command_error(error):
+async def on_command_error(ctx, error):
     if isinstance(error, CommandNotFound):
         return
     raise error
