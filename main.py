@@ -1,6 +1,4 @@
 # VERSION 1.0 / REQUIRES CONFIG 1.0
-import asyncio
-from datetime import time
 
 import discord
 from discord.ext import commands
