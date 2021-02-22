@@ -219,13 +219,13 @@ async def ghost(ctx):
 
 @client.command(aliases=['updates'])
 async def patches(ctx):
-    embed = discord.Embed(title="**Date: 18/02/2021 - Steam Build ID: 6261631 | Server Version: 0.26.6**")
+    embed = discord.Embed(title="**Date: 21/02/2021 - Steam Build ID: 6273023 | Server Version: 0.26.7**")
     embed.add_field(name="Fixes:",
-                    value="**1.** Fixed a bug where if you glitched out of the truck when it was closing the game wouldn't end.\n **2.** Fixed a bug where the power sound wouldn't play if the ghost turned it off.\n **3.** Fixed an issue where the loading text when first opening the game wasn't localised.\n **4.** School: Fixed several errors with the top floor map.\n **5.** Tanglewood: Fixed a bug where the boys bedroom monitor would not turn off with the power.\n **6.** Grafton and School: Fixed several locations where you would lose sanity if the lights were on.", inline=False)
+                    value="**1.** Removed the below minimum spec warning as it was giving some false warnings. This will instead be output into the log file for debugging.\n **2.** Fixed a bug where the 3rd daily challenge would show the total value needed for the 2nd challenge.\n **3.**Fixed a bug where freezing temperatures could be in different rooms for each player.\n **4.** Grafton: Potential fix for some objects sometimes spawning outside.", inline=False)
     embed.add_field(name="Changes:",
-                    value="**1.** Tanglewood: Removed the thunder sound that had voices in it and replaced it with two other thunder sounds.", inline=False)
-    embed.add_field(name="New:",
-                    value="**1.** Added a warning on the main menu which will tell you if your PC might be below the minimum requirements.\n **2.** Added an 'Are you sure?' check after clicking the training button on the main menu.", inline=False)
+                    value="**1.** Removed the below minimum spec warning as it was giving some false warnings. This will instead be output into the log file for debugging.", inline=False)
+    embed.add_field(name="Experimental Changes:",
+                    value="**1.** Asylum: Moved most CCTV cameras to help with fps when in the truck.\n **2.** Asylum: Several minor changes to most rooms to make them easier to navigate and to remove safe spots.\n **3.** Asylum: Adjusted the lighting across the entire map to help with fps. Please let me know if there are any lighting or fps issues.\n **4.** 4. Asylum: Potentially significant improvements to the loading time. This will also help prevent crashes during loading", inline=False)
     embed.set_thumbnail(
         url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
     await ctx.channel.send(embed=embed)
@@ -603,10 +603,11 @@ async def commands(ctx):
 
 
 @client.command()
-async def host(ctx, roomname, roomcode):
+async def host(ctx, region, roomname, roomcode):
 
     embed = discord.Embed(title=f"NEW ROOM | {roomname}")
     embed.add_field(name="Room Code:", value=f"``{roomcode}``")
+    embed.add_field(name="Region:", value=f"``{region}``")
     embed.add_field(name="Hosted By:", value=ctx.author.mention, inline=False)
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/809363157101314048/812685774566195208/cover-256.png")
     await ctx.send(embed=embed)
@@ -616,7 +617,7 @@ async def host(ctx, roomname, roomcode):
 async def host_error(ctx, error):
     if isinstance(error, discord.ext.commands.errors.MissingRequiredArgument):
         prefix = config['prefix']
-        embed2 = discord.Embed(title=":x: Uh-oh!", description=f"{ctx.author.mention}, Incorrect Usage! Try: ``{prefix}host <roomname> <roomcode>``", colour=0xe74c3c)
+        embed2 = discord.Embed(title=":x: Uh-oh!", description=f"{ctx.author.mention}, Incorrect Usage! Try: ``{prefix}host <region> <roomname> <roomcode>``", colour=0xe74c3c)
         await ctx.send(embed=embed2)
         return
     raise error
