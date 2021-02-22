@@ -10,5 +10,5 @@ prefix: "!"
 bot_status_text: "👻 | Hunting"
 
 # IDLE, DND, ONLINE, OFFLINE
-bot_activity: "DND"
+bot_activity: dnd
 
